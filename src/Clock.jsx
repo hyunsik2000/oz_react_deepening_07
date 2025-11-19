@@ -44,7 +44,7 @@ function Clock() {
             <span className="timer-item">{el}</span>
           ))}
         </div>
-        <button className="timer-btn" onClick={handleTimerToggle}>
+        <button className={timerRunning ? 'timer-btn-on' : 'timer-btn-off'} onClick={handleTimerToggle}>
           {timerRunning ? '타이머 정지' : '타이머 시작'}
         </button>
       </article>
