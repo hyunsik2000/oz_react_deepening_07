@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 /**
  * Clock 컴포넌트
  *
@@ -9,7 +11,45 @@
  * - 시계가 실행 중일 때 매초마다 시간을 업데이트합니다.
  **/
 function Clock() {
-  return <div className="timer-container"></div>;
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [time, setTime] = useState(() => new Date());
+
+  const handleTimerToggle = () => {
+    setTimerRunning(!timerRunning);
+  };
+
+  useEffect(() => {
+    if (!timerRunning) return;
+    let interval = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [timerRunning]);
+
+  const hours = time.getHours().toString();
+  const minutes = time.getMinutes().toString();
+  const seconds = time.getSeconds().toString();
+
+  const timeChars = [...hours.split(''), '시', ...minutes.split(''), '분', ...seconds.split(''), '초'];
+
+  return (
+    <section className="timer-container">
+      <p>timer-container</p>
+      <article className="clock-container">
+        <p>RealTime Clock</p>
+        <div className="timer-list">
+          {timeChars.map((el) => (
+            <span className="timer-item">{el}</span>
+          ))}
+        </div>
+        <button className="timer-btn" onClick={handleTimerToggle}>
+          {timerRunning ? '타이머 정지' : '타이머 시작'}
+        </button>
+      </article>
+    </section>
+  );
 }
 
 export default Clock;

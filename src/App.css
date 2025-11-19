@@ -3,4 +3,78 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #333;
+  overflow: hidden;
+}
+
+.container {
+  background-color: skyblue;
+  width: 80%;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-btn {
+  position: absolute;
+  top: 20px;
+}
+
+.main-btn,
+.timer-btn {
+  display: block;
+  border-radius: 4px;
+  border: none;
+  background-color: #fd153a;
+  width: 100px;
+  height: 35px;
+  color: white;
+  cursor: pointer;
+}
+
+.timer-container {
+  color: white;
+  width: 95%;
+}
+
+.timer-container > p {
+  font-size: 20px;
+}
+
+.clock-container {
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  background-color: #cedbe9;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.clock-container p {
+  color: black;
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.timer-list {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.timer-item {
+  margin: 0 10px;
+  background-color: white;
+  color: black;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  font-weight: 700;
 }
